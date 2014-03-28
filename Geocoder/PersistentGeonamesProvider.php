@@ -91,7 +91,7 @@ DQL;
         //$query->setHydrationCacheProfile(new QueryCacheProfile($time, $newkey));
 
         $toponyms = $query
-            ->setParameter('name', "%{$address}%")
+            ->setParameter('name', "{$address}")
             ->setMaxResults($this->maxResults)
             ->execute()
         ;
