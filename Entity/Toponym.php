@@ -3,7 +3,7 @@
 namespace Giosh94mhz\GeonamesBundle\Entity;
 
 use Giosh94mhz\GeonamesBundle\Model\Toponym as ToponymInterface;
-use Giosh94mhz\GeonamesBundle\Model\AlternateName;
+use Giosh94mhz\GeonamesBundle\Model\AlternateName as AlternateNames;
 
 /**
  * Toponym
@@ -196,7 +196,7 @@ class Toponym implements ToponymInterface
     public function getAlternateNamesArray()
     {
         if (empty($this->alternateNamesArray)) {
-            return array_map(function (AlternateName $alternateName) {
+            return array_map(function (AlternateNames $alternateName) {
                 return $alternateName->getName();
             }, $this->alternateNames->toArray());
         }
@@ -533,7 +533,7 @@ class Toponym implements ToponymInterface
      * @param  AlternateName $alternateNames
      * @return Toponym
      */
-    public function addAlternateName(AlternateName $alternateNames)
+    public function addAlternateName(AlternateNames $alternateNames)
     {
         $this->alternateNames[] = $alternateNames;
 
@@ -545,7 +545,7 @@ class Toponym implements ToponymInterface
      *
      * @param AlternateName $alternateNames
      */
-    public function removeAlternateName(AlternateName $alternateNames)
+    public function removeAlternateName(AlternateNames $alternateNames)
     {
         $this->alternateNames->removeElement($alternateNames);
     }
