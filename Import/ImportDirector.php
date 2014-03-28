@@ -73,6 +73,8 @@ class ImportDirector implements ImportDirectorInterface
 
     private function importStep(ImportStepBuilder $builder, &$totSynced, &$totSkipped, &$totErrors)
     {
+        set_time_limit(6000);
+        ini_set("memory_limit", -1);
         if ($this->dispatcher) {
             $event = new PreImportEvent();
             $event->setBuilder($builder);
@@ -82,17 +84,26 @@ class ImportDirector implements ImportDirectorInterface
         $synced = $skipped = $errors = 0;
 
         $reader = $builder->buildReader();
+
         $reader->open();
 
         $totalSize = $reader->count();
+        $i = 1;
+        $batchSize = 20;
         foreach ($reader as $size => $value) {
             try {
                 $this->emptyToNull($value);
 
                 $entity = $builder->buildEntity($value);
-
-                $this->om->persist($entity);
-
+                if($entity){
+                    $this->om->persist($entity);
+                    if( ($i % $batchSize) == 0 ){
+                        $this->om->flush();
+                        $this->om->clear();
+                    }
+                //    $this->om->flush($entity);
+                }
+                $i++;
                 ++ $synced;
 
             } catch (SkipImportException $e) {
