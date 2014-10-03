@@ -4,7 +4,7 @@
     <id name="id" type="integer" column="alternate_name_id"/>
     <many-to-one field="toponym" target-entity="Toponym" inversed-by="alternateNames">
        <join-columns>
-        <join-column name="geoname_id" referenced-column-name="geoname_id" nullable="false"/>
+        <join-column name="geoname_id" referenced-column-name="geoname_id" nullable="false" on-delete="CASCADE" on-update="CASCADE" />
       </join-columns>
     </many-to-one>
     <field name="language" type="string" column="iso_language" length="7" nullable="true"/>
