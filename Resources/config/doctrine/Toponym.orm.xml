@@ -12,6 +12,8 @@
       <options><option name="unsigned">true</option></options>
     </id>
     <field name="name" type="string" column="name" length="200" nullable="false"/>
+    <field name="county" type="string" column="county" length="255" nullable="true"/>
+
     <field name="asciiName" type="string" column="ascii_name" length="200" nullable="false"/>
     <field name="alternateNamesArray" type="string_simple_array" column="alternate_names" length="4000" nullable="true"/>
     <field name="latitude" type="float" column="latitude" precision="10" scale="7" nullable="true"/>

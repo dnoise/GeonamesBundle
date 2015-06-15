@@ -115,6 +115,12 @@ class Toponym implements ToponymInterface
      */
     private $feature;
 
+
+    /**
+     * @var County
+     */
+    private $county;
+
     /**
      * Constructor
      */
@@ -648,4 +654,22 @@ class Toponym implements ToponymInterface
     {
         return $this->feature;
     }
+
+    /**
+     * @return County
+     */
+    public function getCounty()
+    {
+        return $this->county;
+    }
+
+    /**
+     * @param County $county
+     */
+    public function setCounty($county)
+    {
+        $this->county = $county;
+    }
+
+
 }

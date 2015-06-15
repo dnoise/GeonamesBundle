@@ -101,6 +101,8 @@ class ResultAdapter extends AbstractResult implements ResultInterface
 
     public function getCounty()
     {
+        if ( $this->toponym->getCounty() ) return $this->toponym->getCounty();
+
         return ($this->toponym->getFeature()->getClass() == 'ADM2') ? $this->toponym->getName() : null;
     }
 
@@ -150,7 +152,7 @@ class ResultAdapter extends AbstractResult implements ResultInterface
             'zipcode' => $this->getZipcode(),
             'city' => $this->getCity(),
             'cityDistrict' => $this->getCityDistrict(),
-            'county' => $this->getCountry(),
+            'county' => $this->getCounty(),
             'countyCode' => $this->getCountryCode(),
             'region' => $this->getRegion(),
             'regionCode' => $this->getRegionCode(),
