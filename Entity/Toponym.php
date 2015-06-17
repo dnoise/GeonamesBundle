@@ -122,6 +122,17 @@ class Toponym implements ToponymInterface
     private $county;
 
     /**
+     * @var CountyPopulation
+     */
+    private $county_population;
+
+    /**
+     * @var CountyPopulation
+     */
+    private $country_population;
+
+
+    /**
      * Constructor
      */
     public function __construct($id)
@@ -670,6 +681,40 @@ class Toponym implements ToponymInterface
     {
         $this->county = $county;
     }
+
+    /**
+     * @return CountyPopulation
+     */
+    public function getCountyPopulation()
+    {
+        return $this->county_population;
+    }
+
+    /**
+     * @param CountyPopulation $county_population
+     */
+    public function setCountyPopulation($county_population)
+    {
+        $this->county_population = $county_population;
+    }
+
+    /**
+     * @return CountyPopulation
+     */
+    public function getCountryPopulation()
+    {
+        return $this->country_population;
+    }
+
+    /**
+     * @param CountyPopulation $country_population
+     */
+    public function setCountryPopulation($country_population)
+    {
+        $this->country_population = $country_population;
+    }
+
+
 
 
 }
