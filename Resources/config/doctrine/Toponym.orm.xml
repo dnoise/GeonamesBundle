@@ -27,7 +27,9 @@
     <field name="countryCode" type="string" column="country" length="2" nullable="true">
       <options><option name="fixed">true</option></options>
     </field>
+
     <field name="alternateCountryCodes" type="string_simple_array" column="alternate_country_codes" length="60" nullable="true"/>
+    <field name="iso_3166_2" type="string" column="iso_3166_2" nullable="true"/>
     <field name="admin1Code" type="string" column="admin1" length="20" nullable="true"/>
     <field name="admin2Code" type="string" column="admin2" length="80" nullable="true"/>
     <field name="admin3Code" type="string" column="admin3" length="20" nullable="true"/>

@@ -131,6 +131,11 @@ class Toponym implements ToponymInterface
      */
     private $country_population;
 
+    /**
+     * @var iso_3166_2
+     */
+    private $iso_3166_2;
+
 
     /**
      * Constructor
@@ -712,6 +717,22 @@ class Toponym implements ToponymInterface
     public function setCountryPopulation($country_population)
     {
         $this->country_population = $country_population;
+    }
+
+    /**
+     * @return iso_3166_2
+     */
+    public function getIso31662()
+    {
+        return $this->iso_3166_2;
+    }
+
+    /**
+     * @param iso_3166_2 $iso_3166_2
+     */
+    public function setIso31662($iso_3166_2)
+    {
+        $this->iso_3166_2 = $iso_3166_2;
     }
 
 
