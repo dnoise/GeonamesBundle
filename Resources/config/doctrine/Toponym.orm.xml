@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="Giosh94mhz\GeonamesBundle\Entity\Toponym" table="geoname" repository-class="Giosh94mhz\GeonamesBundle\Repository\ToponymRepository">
-    <indexes>
-        <index name="name_idx" columns="name"/>
-        <index columns="population"/>
-        <index name="search_idx" columns="name,population"/>
-    </indexes>
-
     <id name="id" type="integer" column="geoname_id">
       <generator strategy="NONE"/>
       <options><option name="unsigned">true</option></options>
@@ -14,8 +8,14 @@
     <field name="name" type="string" column="name" length="200" nullable="false"/>
     <field name="county" type="string" column="county" length="255" nullable="true"/>
 
+      <field name="feature_code" type="string" column="feature_code" length="10" nullable="false"/>
+      <field name="feature_class" type="string" column="feature_class" length="1" nullable="false">
+          <options><option name="fixed">true</option></options>
+      </field>
+
     <field name="asciiName" type="string" column="ascii_name" length="200" nullable="false"/>
     <field name="alternateNamesArray" type="string_simple_array" column="alternate_names" length="4000" nullable="true"/>
+
     <field name="latitude" type="float" column="latitude" precision="10" scale="7" nullable="true"/>
     <field name="longitude" type="float" column="longitude" precision="10" scale="7" nullable="true"/>
     <many-to-one field="feature" target-entity="Feature">
@@ -28,6 +28,7 @@
       <options><option name="fixed">true</option></options>
     </field>
 
+    <field name="priority" type="boolean" column="priority" nullable="true"/>
     <field name="alternateCountryCodes" type="string_simple_array" column="alternate_country_codes" length="60" nullable="true"/>
     <field name="iso_3166_2" type="string" column="iso_3166_2" nullable="true"/>
     <field name="admin1Code" type="string" column="admin1" length="20" nullable="true"/>
@@ -48,6 +49,9 @@
 
     <indexes>
         <index name="idx_name" columns="name"/>
+        <index columns="population"/>
+        <index name="search_prior_idx" columns="name,priority"/>
+        <index name="search_idx" columns="name,population"/>
         <index name="idx_name_population" columns="name,population"/>
         <index name="idx_coordinates" columns="latitude,longitude"/>
         <index name="idx_hierarchy" columns="country,admin1,admin2"/>

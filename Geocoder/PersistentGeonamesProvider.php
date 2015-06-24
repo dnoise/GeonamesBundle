@@ -73,7 +73,7 @@ class PersistentGeonamesProvider implements LocaleAwareProviderInterface
         $dql = <<<DQL
 SELECT t
 FROM Giosh94mhzGeonamesBundle:Toponym t
-WHERE t.name = :name order by t.population desc
+WHERE t.name = :name order by t.priority desc
 DQL;
 
         /* @var $query \Doctrine\ORM\Query */

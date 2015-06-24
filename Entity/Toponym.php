@@ -136,6 +136,21 @@ class Toponym implements ToponymInterface
      */
     private $iso_3166_2;
 
+    /**
+     * @var $feature_code
+     */
+    private $feature_code;
+
+    /**
+     * @var $feature_class
+     */
+    private $feature_class;
+
+    /**
+     * @var $priority
+     */
+    private $priority;
+
 
     /**
      * Constructor
@@ -733,6 +748,54 @@ class Toponym implements ToponymInterface
     public function setIso31662($iso_3166_2)
     {
         $this->iso_3166_2 = $iso_3166_2;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFeatureCode()
+    {
+        return $this->feature_code;
+    }
+
+    /**
+     * @param mixed $feature_code
+     */
+    public function setFeatureCode($feature_code)
+    {
+        $this->feature_code = $feature_code;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFeatureClass()
+    {
+        return $this->feature_class;
+    }
+
+    /**
+     * @param mixed $feature_class
+     */
+    public function setFeatureClass($feature_class)
+    {
+        $this->feature_class = $feature_class;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPriority()
+    {
+        return $this->priority;
+    }
+
+    /**
+     * @param mixed $priority
+     */
+    public function setPriority($priority)
+    {
+        $this->priority = $priority;
     }
 
 
