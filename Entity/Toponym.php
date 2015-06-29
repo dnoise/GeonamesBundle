@@ -117,24 +117,29 @@ class Toponym implements ToponymInterface
 
 
     /**
-     * @var County
+     * @var $county
      */
     private $county;
 
     /**
-     * @var CountyPopulation
+     * @var $CountyPopulation
      */
     private $county_population;
 
     /**
-     * @var CountyPopulation
+     * @var $CountyPopulation
      */
     private $country_population;
 
     /**
-     * @var iso_3166_2
+     * @var $iso_3166_2
      */
     private $iso_3166_2;
+
+    /**
+     * @var $iso_name
+     */
+    private $iso_name;
 
     /**
      * @var $feature_code
@@ -798,7 +803,21 @@ class Toponym implements ToponymInterface
         $this->priority = $priority;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getIsoName()
+    {
+        return $this->iso_name;
+    }
 
+    /**
+     * @param mixed $iso_name
+     */
+    public function setIsoName($iso_name)
+    {
+        $this->iso_name = $iso_name;
+    }
 
 
 }
